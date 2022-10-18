@@ -2,7 +2,8 @@ const User = require('../models/User');
 const Entry = require('../models/Entry');
 const Goal = require('../models/Goal');
 const Race = require('../models/Race');
-const Buddy = require('../models/User')
+const Buddy = require('../models/User');
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
 // Get the Login Index Page
@@ -18,6 +19,7 @@ module.exports = {
       res.render("dashboard", { 
         entries: entries, 
         user: req.user, 
+        userId: req.user.id,
         goals: goals,
         races: races,
       });
@@ -91,4 +93,17 @@ getBuddies: async (req,res) =>{
       console.log(err)
   }
 },
+ // Adds image from 'profile.ejs' 
+ addImg: async (req,res) => {
+  try {
+      const result = await cloudinary.uploader.upload(req.file.path);
+      await User.findByIdAndUpdate({_id: req.user.id},{
+          img: result.secure_url,
+          cloudinaryId: result.public_id,
+      })
+      res.redirect('dashboard')
+  } catch (err) {
+      console.log(err)
+  }
+}
 };

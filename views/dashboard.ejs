@@ -3,6 +3,31 @@
   <section class="side-img-community">
     <img src="/imgs/journal-banner.png">
   </section>
+    <div class="card" style="width: 18rem;" data-name='<%=user.user%>' data-id='<%=user._id%>'>
+        <img class="card-img-top" src="<%= user.img %>" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"><%= user.userName%></p>
+          <% if(user.id == userId) {%>
+            <i class="modal-trigger btn blue-grey darken-1 fa fa-plus profile-button" href="#modal1"></i>
+            <% } %>
+        </div>
+      </div>
+
+<!-- Modal -->
+<div class="modal-overlay">
+<div class="modal modal-container" id="modal1">
+  <form action="/addProfileImg?_method=PUT" enctype="multipart/form-data" method="POST">
+      <div class="row">
+        <label for="imgUpload" class="form-label">Change Profile Picture: </label>
+        <input type="file" class="form-control" id="imageUpload" name="file">
+      </div>
+      <button type="submit" class="btn light-blue darken-4" value="Upload">Submit</button>
+      <span class="btn blue-grey darken-1 modal-close">Cancel</span>
+  </form>
+</div>
+</div>
+
+<!-- Profile Begins -->
 <h4><%= user.userName %>'s Running Journal</p></h4>
 
 <!-- Races -->
@@ -94,5 +119,6 @@
   </table>
 
 </main>
-<script src="/public/js/main.js"></script>
+<div class="space"></div>
+<script src="public/js/main.js"></script>
 <%- include('partials/footer') -%>

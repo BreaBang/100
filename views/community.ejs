@@ -10,6 +10,7 @@
       <% for(var i=0; i<entries.length; i++) {%>
         <li class="col-3 justify-content-between mt-5">
           <div class="card" style="width: 20rem; height: 20rem;">
+            <img class="card-img-top" src="<%= entries[i].user.img %>" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%= entries[i].title.substring(0, 20)+"..."%></h4>
               <span class="card-text"><%= entries[i].userName%></span>

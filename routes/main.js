@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../middleware/multer");
 const authController = require("../controllers/auth");
 const homeController = require("../controllers/home");
 const entriesController = require("../controllers/entries");
@@ -20,6 +21,7 @@ router.get("/add", ensureAuth, entriesController.getAddPage);
 router.post("/createComment/:id", commentsController.createComment);
 router.get("/:userId", ensureAuth, homeController.getProfile);
 router.get("/buddies", ensureAuth, homeController.getBuddies);
+router.put('/addProfileImg', upload.single("file"), homeController.addImg)
 
 
 
