@@ -53,8 +53,8 @@ const EntrySchema = new mongoose.Schema({
         ref: 'Comment',
     },
     image: {
-        type: String,
-        require: true,
+        type: mongoose.Schema.Types.ObjectId,  
+        ref: 'User',
       },
       cloudinaryId: {
         type: String,

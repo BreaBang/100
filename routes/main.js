@@ -5,6 +5,7 @@ const authController = require("../controllers/auth");
 const homeController = require("../controllers/home");
 const entriesController = require("../controllers/entries");
 const commentsController = require("../controllers/comments");
+const communityController = require("../controllers/community");
 const goalController = require("../controllers/goals");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
@@ -20,7 +21,6 @@ router.get("/community", ensureAuth, homeController.getCommunity);
 router.get("/add", ensureAuth, entriesController.getAddPage);
 router.post("/createComment/:id", commentsController.createComment);
 router.get("/:userId", ensureAuth, homeController.getProfile);
-router.get("/buddies", ensureAuth, homeController.getBuddies);
 router.put('/addProfileImg', upload.single("file"), homeController.addImg)
 
 

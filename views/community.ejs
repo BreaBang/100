@@ -1,16 +1,25 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <section class="side-img-community">
-    <img src="/imgs/community-banner.png">
-</section>
-
+ <!-- Image Banner -->
+ <div class="container image-banner">
+  <div class="row justify-content-md-center">
+    <div class="col">
+    </div>
+    <div class="col-md-auto"><img src="/imgs/community-banner.png"> 
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
 <!-- Public Posts - All Users -->
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center mt-3 ">
     <ul class="row list-unstyled">
       <% for(var i=0; i<entries.length; i++) {%>
-        <li class="col-3 justify-content-between mt-5">
+        <li class="col-3 justify-content-between mt-3">
           <div class="card" style="width: 20rem; height: 20rem;">
-            <img class="card-img-top" src="<%= entries[i].user.img %>" alt="Card image cap">
+            <div class="card-img-top text-white bg-primary pen-top" style="height: 3rem;">
+            <span class="fa-solid fa-pen-nib comm-span"></span>
+            <span class="comm-span"> <%=entries[i].createdAt.toDateString() %></span>
+            </div>
             <div class="card-body">
               <h5 class="card-title"><%= entries[i].title.substring(0, 20)+"..."%></h4>
               <span class="card-text"><%= entries[i].userName%></span>

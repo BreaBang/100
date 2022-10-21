@@ -1,93 +1,100 @@
 <%- include('partials/header') -%>
-<main class="container">
-  <section class="side-img-community">
-    <img src="/imgs/journal-banner.png">
-  </section>
-    <div class="card" style="width: 18rem;" data-name='<%=user.user%>' data-id='<%=user._id%>'>
-        <img class="card-img-top" src="<%= user.img %>" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text"><%= user.userName%></p>
-          <% if(user.id == userId) {%>
-            <i class="modal-trigger btn blue-grey darken-1 fa fa-plus profile-button" href="#modal1"></i>
-            <% } %>
-        </div>
+
+ <!-- Image Banner -->
+ <div class="container image-banner">
+  <div class="row justify-content-md-center">
+    <div class="col">
+    </div>
+    <div class="col-md-auto"><img src="/imgs/journal-banner.png"> 
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+
+<!-- User Profile Grid -->
+<section class="profile-grid border border-primary rounded">
+<div class="row">
+  <div class="col-3 card profile-card" data-name='<%=user.user%>' data-id='<%=user._id%>'>
+      <img class="card-img-top" src="<%= user.img %>" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text"><%= user.userName%></p>
+        <!-- Profile Photo Update -->
+        <% if(user._id == userId) {%>
+          <form action="/addProfileImg?_method=PUT" enctype="multipart/form-data" method="POST">
+            <div class="row">
+              <label for="imgUpload" class="form-label">Change Photo: </label>
+              <input type="file" class="form-control" id="imageUpload" name="file">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
+        </form>
+          <% } %>
       </div>
+  </div>
+  <div class="col-8">
+     <!-- Races -->
+     <h5>Races:</h5>
+     <table class="table">
+       <thead>
+         <tr>
+           <th scope="col">Race Name</th>
+           <th scope="col">Date and Start Time</th>
+           <th scope="col"><span class="fa fa-trash"></span></th>
+         </tr>
+       </thead>
+         <tbody>
+         <% races.forEach(el => { %>
+           <tr class='raceItem' data-name='<%=el.user%>' data-id='<%=el._id%>'>
+             <td><span><%=el.race %></span></td>
+             <td><span><%=el.raceDate %></span></td>
+             <td><span> <form
+             action="/race/deleteRACE/<%= el._id%>?_method=DELETE"
+             method="POST"
+             class="col-3"
+           >
+             <button class="btn btn-dark fa fa-trash" type="submit"></button>
+           </form>
+           </span></td>
+           </tr>
+         <% }) %>
+         </tbody>
+       </table>
 
-<!-- Modal -->
-<div class="modal-overlay">
-<div class="modal modal-container" id="modal1">
-  <form action="/addProfileImg?_method=PUT" enctype="multipart/form-data" method="POST">
-      <div class="row">
-        <label for="imgUpload" class="form-label">Change Profile Picture: </label>
-        <input type="file" class="form-control" id="imageUpload" name="file">
-      </div>
-      <button type="submit" class="btn light-blue darken-4" value="Upload">Submit</button>
-      <span class="btn blue-grey darken-1 modal-close">Cancel</span>
-  </form>
+   <!-- Goals -->
+   <h5>Goals:</h5>
+   <table class="table">
+     <thead>
+       <tr>
+         <th scope="col">Date Added</th>
+         <th scope="col">Goal</th>
+         <th scope="col"><span class="fa fa-trash"></span></th>
+       </tr>
+     </thead>
+       <tbody>
+       <% goals.forEach(el => { %>
+         <tr class='goalItem' data-name='<%=el.user%>' data-id='<%=el._id%>'>
+           <td><span><%=el.createdAt.toDateString() %></span></td>
+           <td><span class ='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.goal %></span></td>
+           <td><span> <form
+           action="/goal/deleteGoal/<%= el._id%>?_method=DELETE"
+           method="POST"
+           class="col-3"
+         >
+           <button class="btn btn-dark fa fa-trash" type="submit"></button>
+         </form>
+         </span></td>
+         </tr>
+       <% }) %>
+       </tbody>
+     </table>
+
+  </div>
 </div>
-</div>
-
-<!-- Profile Begins -->
-<h4><%= user.userName %>'s Running Journal</p></h4>
-
-<!-- Races -->
-<h5>Races:</h5>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Race Name</th>
-      <th scope="col">Date and Start Time</th>
-      <th scope="col"><span class="fa fa-trash"></span></th>
-    </tr>
-  </thead>
-    <tbody>
-    <% races.forEach(el => { %>
-      <tr class='raceItem' data-name='<%=el.user%>' data-id='<%=el._id%>'>
-        <td><span><%=el.race %></span></td>
-        <td><span><%=el.raceDate %></span></td>
-        <td><span> <form
-        action="/race/deleteRACE/<%= el._id%>?_method=DELETE"
-        method="POST"
-        class="col-3"
-      >
-        <button class="btn btn-dark fa fa-trash" type="submit"></button>
-      </form>
-      </span></td>
-      </tr>
-    <% }) %>
-    </tbody>
-  </table>
-
-
-<!-- Goals -->
-<h5>Goals:</h5>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Date Added</th>
-      <th scope="col">Goal</th>
-      <th scope="col"><span class="fa fa-trash"></span></th>
-    </tr>
-  </thead>
-    <tbody>
-    <% goals.forEach(el => { %>
-      <tr class='goalItem' data-name='<%=el.user%>' data-id='<%=el._id%>'>
-        <td><span><%=el.createdAt.toDateString() %></span></td>
-        <td><span class ='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.goal %></span></td>
-        <td><span> <form
-        action="/goal/deleteGoal/<%= el._id%>?_method=DELETE"
-        method="POST"
-        class="col-3"
-      >
-        <button class="btn btn-dark fa fa-trash" type="submit"></button>
-      </form>
-      </span></td>
-      </tr>
-    <% }) %>
-    </tbody>
-  </table>
-
+</section>
+       
+<!-- Running Journal -->
 <!--If entries add here -->
+<h4><%= user.userName %>'s Running Journal</p></h4>
 <h5>Journal Entries:</h5>
 <table class="table">
   <thead>
@@ -118,7 +125,6 @@
     </tbody>
   </table>
 
-</main>
 <div class="space"></div>
-<script src="public/js/main.js"></script>
+
 <%- include('partials/footer') -%>

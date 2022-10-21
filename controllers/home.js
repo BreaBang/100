@@ -20,6 +20,7 @@ module.exports = {
         entries: entries, 
         user: req.user, 
         userId: req.user.id,
+        _id: req.user.id,
         goals: goals,
         races: races,
       });
@@ -79,16 +80,6 @@ getUserProfile: async (req,res) =>{
         races: races,
         userId: req.user._id, 
         buddies: user.buddies})
-  } catch (err) {
-      console.log(err)
-  }
-},
-getBuddies: async (req,res) =>{
-  try {
-      const userItems = await User.find({_id: { $ne: req.user.id}})
-      let user = await User.findById({_id: req.user.id}).populate({path: 'buddies', select: 'userName'})
-      const arr = user.friends.map(friend => friend._id)
-      res.render('buddies.ejs', {user: userItems, buddiesArr: arr, buddies: user.buddies, userName: req.user.names})
   } catch (err) {
       console.log(err)
   }
