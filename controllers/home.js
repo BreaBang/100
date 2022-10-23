@@ -47,26 +47,6 @@ module.exports = {
 
   }
 },
-getProfile: async (req, res) => {
-  try {
-    let user = await User.findById({_id: req.params.id})
-    const entries = await Entry.find({
-      user: req.params.userId,
-      status: 'public',
-    }).populate({path: 'buddies', select: 'userName'}).sort({ createdAt: 'desc'}).lean()
-    // Using the index page we already built and passing in different information
-    res.render('profile', {
-      entries: entries, 
-      user: user,
-      userId: req.user._id,
-      buddies: user.buddies
-     
-    })
-    console.log(`the user is ${user}`)
-  } catch (err){
-    console.log(err);
-  }
-},
 getUserProfile: async (req,res) =>{
   try {
     const entries = await Entry.find({user: req.user.id});

@@ -20,9 +20,8 @@ router.get("/dashboard", ensureAuth, homeController.getDashboard);
 router.get("/community", ensureAuth, homeController.getCommunity);
 router.get("/add", ensureAuth, entriesController.getAddPage);
 router.post("/createComment/:id", commentsController.createComment);
-router.get("/:userId", ensureAuth, homeController.getProfile);
-router.put('/addProfileImg', upload.single("file"), homeController.addImg)
-
+router.put('/addProfileImg', upload.single("file"), homeController.addImg);
+router.get('/entries/profile/:id', homeController.getUserProfile);
 
 
 module.exports = router;
