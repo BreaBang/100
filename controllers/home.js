@@ -49,17 +49,20 @@ module.exports = {
 },
 getUserProfile: async (req,res) =>{
   try {
-    const entries = await Entry.find({user: req.user.id});
-    const goals = await Goal.find({user: req.user});
-    const races = await Race.find({user: req.user});
-      let user = await User.findById({_id: req.user.id}).populate({path: 'buddies', select: 'userName'})
+      const userItems = await User.findById(req.params.id)
+      const entry = await Entry.find({user: req.params.id})
+      const goal = await Goal.find({user: req.params.id})
+      const race = await Race.find({user: req.params.id})
+      let user = await User.findById({_id: req.params.id}).populate({path: 'friends', select: 'userName'})
       res.render('profile.ejs', {
-        entries: entries, 
-        user: req.user, 
-        goals: goals,
-        races: races,
+        goals: goal, 
+        races: race, 
+        userName: req.user.names, 
+        user: userItems, 
+        entries: entry, 
         userId: req.user._id, 
-        buddies: user.buddies})
+        buddies: user.buddies
+      })
   } catch (err) {
       console.log(err)
   }

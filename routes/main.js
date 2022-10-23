@@ -21,7 +21,7 @@ router.get("/community", ensureAuth, homeController.getCommunity);
 router.get("/add", ensureAuth, entriesController.getAddPage);
 router.post("/createComment/:id", commentsController.createComment);
 router.put('/addProfileImg', upload.single("file"), homeController.addImg);
-router.get('/entries/profile/:id', homeController.getUserProfile);
+router.get('/profile/:id', homeController.getUserProfile);
 
 
 module.exports = router;
