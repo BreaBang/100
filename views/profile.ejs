@@ -50,7 +50,9 @@
          <% races.forEach(el => { %>
            <tr class='raceItem' data-name='<%=el.user._id%>' data-id='<%=el._id%>'>
              <td><span><%=el.race %></span></td>
-             <td><span><%=el.raceDate %></span></td>
+             <td><span>
+              <time datetime="<%=new Date(el.raceDate).toDateString()%>" class="font-extrabold text-2xl"><%= new Date(el.raceDate).toLocaleDateString('en', { year: 'numeric' , month: 'short' , day: '2-digit' }) %></time>
+             </span></td>
              <%if(user.user == user.id){ %>
              <td>
               <span> <form
