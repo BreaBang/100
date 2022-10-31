@@ -24,4 +24,5 @@ router.put('/addProfileImg', upload.single("file"), homeController.addImg);
 router.get('/profile/:id', homeController.getUserProfile);
 
 
+
 module.exports = router;

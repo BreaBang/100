@@ -6,5 +6,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 
 router.get('/buddies', communityController.getBuddies)
+router.put('/addFriend/:id', communityController.addBuddy)
+router.put('/removeFriend/:id', communityController.removeBuddy)
 
 module.exports = router;
