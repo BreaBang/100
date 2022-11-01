@@ -27,10 +27,15 @@
             </div>
             <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
         </form>
-        <%} else {%>
-          <form class="col-1" action="books/addbuddy/<%= user._id %>?_method=PUT" method="POST">
-          
-          <button class="btn btn-primary darken-4" type="submit" onclick="M.toast({html: `Now following <%= user.userName %>!`})">Follow</button>
+        <%} else if(buddies.includes(user._id)) {%>
+            <form class="col-1" action="books/removebuddy/<%= user[i]._id %>?_method=PUT" method="POST">
+        
+            <button class="btn btn-friends red lighten-2" type="submit">Unfollow</button>
+    
+            </form>
+          <%} else {%>
+          <form class="col-1" action="/addbuddy/<%= user._id %>?_method=PUT" method="POST">
+          <button class="btn btn-primary darken-4" type="submit">Follow</button>
           </form>
           <% } %>
       </div>

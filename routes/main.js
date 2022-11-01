@@ -22,6 +22,7 @@ router.get("/add", ensureAuth, entriesController.getAddPage);
 router.post("/createComment/:id", commentsController.createComment);
 router.put('/addProfileImg', upload.single("file"), homeController.addImg);
 router.get('/profile/:id', homeController.getUserProfile);
+router.put('/addbuddy/:id', communityController.addBuddy);
 
 
 
