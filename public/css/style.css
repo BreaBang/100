@@ -139,7 +139,8 @@ label{
     margin: 25px 25px 25px 25px;
 }
 .intro-container-img{
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
 }
 /* General Styling */
 a {
