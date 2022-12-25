@@ -1,8 +1,7 @@
-const express = require('express');
-const router = express.Router();
 const { ensureAuth } = require('../middleware/auth');
 const mongoose = require('mongoose');
 const Race = require('../models/Race');
+const moment = require('moment');
 
 
 module.exports = {

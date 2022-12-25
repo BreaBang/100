@@ -2,9 +2,8 @@
 <section class="entries-layout">
   <!-- Entry Section -->
   <main class="container entries-main">  
-    <img class="img-thumbnail img-size" src="<%= entry.image%>" />
     <h2><%= entry.title %></h2>
-    <h5>Runner: <%= entry.userName %></h5>
+    <h5>Runner: <a href="/profile/<%=entry.user._id%>"> <%= entry.userName %></a></h5>
     <h5>Type of Run: <%= entry.runType %></h5>
     <h5>Distance: <%= entry.distance %></h5>
     <h5>Duration: <%= entry.duration %></h5>
@@ -33,7 +32,7 @@
             <label for="comment" class="form-label">Comment</label>
             <input type="text" class="form-control" id="comment" name="comment">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary comment">Submit</button>
         </form>
 <!-- Display Comments-->
   <section>

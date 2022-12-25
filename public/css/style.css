@@ -1,3 +1,10 @@
+/* Temporary */
+.under-construction-bar{
+    color: black;
+    font-size: 1.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
 /* Layout Styling */
 body{
     height: auto;
@@ -67,12 +74,30 @@ body{
     margin: 25px 0px 25px 25px;
     padding-left:30px;
 }
+.pen-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.comm-span{
+    padding: 0px 5px 0px 5px;
+}
+.profile-grid{
+    margin-top: 10px;
+    
+}
+.profile-card{
+}
 /* Buttons */
 .nav-btn{
     margin: 10px 10px 10px 10px;
-    color: white;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+}
+.logout{
+
 }
 .index-btn{
     margin: 10px 0px 10px 0px;
@@ -83,16 +108,25 @@ body{
  .btn-goal{
     margin: 10px 0px 10px 0px;
  }
- 
+ .addBtn{
+    color: white;
+ }
+ .addBtn-Primary{
+    color: #076AE0;
+ }
+ .comment {
+    margin-top: 10px;
+    padding-top: 10px;
+ }
  /* Forms */
  .form-control{
-    font-size: 1.75rem;
-}
-input{
     font-size: 1.5rem;
 }
+input{
+    font-size: 1.25rem;
+}
 label{
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 .form-div{
     margin-top: 25px;
@@ -122,6 +156,7 @@ label{
     width: 300px;
 }
 
+
 /* Images */
 .logo{
     height: 200px;
@@ -132,15 +167,19 @@ label{
     height: 500px;
     width: auto;
 }
-.side-img-community{
-    margin: 25px 25px 25px 25px;
-}
-.side-img-add{
-    margin: 25px 25px 25px 25px;
-}
+
 .intro-container-img{
     width: 100%;
     max-width: 600px;
+}
+.image-banner{
+    margin-top: 10px;
+}
+.profile-grid{
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    padding: 15px 5px 15px 25px;
+
 }
 /* General Styling */
 a {
@@ -154,25 +193,25 @@ a {
     background-color: #076AE0;
 }
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 h2 {
-    font-size: 2.75rem;
+    font-size: 2.50rem;
 }
 h3 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
 }
 h4 {
     font-size: 2rem;
 }
 h5 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 h6 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 p{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 li {
     list-style: none;

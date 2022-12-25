@@ -1,0 +1,23 @@
+<!-- New -->
+<%- include('partials/header') -%>
+<ul class="collapsible buddies-collapsible">
+    <li>
+      <div class="collapsible-header"><h1 class="buddies-header">Virtual Running Buddies (<%= buddies.length %>)</h1></div>
+      <div class="collapsible-body">
+          <table class="highlight responsive-table">
+              <thead>
+                  <tr>
+                      <th>Username</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                  <% for(let i=0; i < buddies.length; i++) {%>
+                      <td><a class="buddies-list" href="profile/<%= buddies[i]._id %>"><%= buddies[i].userName %></a></td>
+                  </tr>
+                  <% } %>
+              </tbody>
+          </table>
+      </div>
+  </ul>
+  <%- include('partials/footer') -%>

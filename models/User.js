@@ -21,12 +21,23 @@ const UserSchema = new mongoose.Schema({
   },
   profilePhoto: {
     type: String,
-    require: true,
   },
-  cloudinaryId: {
-    type: String,
-    require: true,
-  },
+  buddies: 
+    [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    }],
+    img:
+    {
+      type: String,
+      require: true,
+      default: 'public/imgs/default.jpg',
+    },
+  cloudinaryId:
+    {
+      type: String,
+      require: true,
+    }
 });
 
 // Password hash middleware.

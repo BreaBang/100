@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const { ensureAuth } = require('../middleware/auth');
 const mongoose = require('mongoose');
 const Goal = require("../models/Goal");

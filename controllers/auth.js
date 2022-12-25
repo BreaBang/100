@@ -10,7 +10,6 @@ exports.getLogin = (req, res) => {
     title: "Login",
   });
 };
-
 exports.postLogin = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))

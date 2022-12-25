@@ -1,9 +1,47 @@
 <%- include('partials/header') -%>
-<section class="add-page">
-<section class="side-img-add">
-    <img src="/imgs/add-banner.png">
-</section>
+
+ <!-- Image Banner -->
+ <div class="container image-banner">
+    <div class="row justify-content-md-center">
+      <div class="col">
+      </div>
+      <div class="col-md-auto"><img src="/imgs/add-banner.png"> 
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
 <main class="container main-add">
+<!-- Add a Race -->
+<div class="row form-div">
+<form action="/race/createRace" method="POST" class="col s12">
+    <div class="form-row race-entry">
+      <label for="race" class="entry-label">Add a Race:</label>
+      <div class="col-3 race-form">
+        <span>Race:</span> <input type="text" id="race" name="race" class="form-control">
+      </div>
+      <div class="col-3 race-form">
+        <span>Race Date:</span> <input id="raceDate" name="raceDate" type="date" class="input input-bordered w-full max-w-xs form-control" required> 
+      </div>
+      <div class="col-3 race-form">
+      <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
+    </div>
+  </div>
+  </form>
+</div>
+<div class="row form-div">
+    <!-- Add a Goal -->
+<form action="/goal/createGoal" method="POST" class="col s12">
+    <div class="form-row race-entry">
+          <label for="goal" class="entry-label">Add a Goal:</label>
+          <div class="col-3 race-form">
+            <input type="text" id="goal" name="goal" class="form-control">
+        </div>
+        <div class="col-3 race-form">
+    <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
+    </div></div>
+  </form>
+</div>
 <div class="row form-div">
 <h3>Add A Journal Entry</h3>
 </div>
@@ -59,28 +97,16 @@
     </div>
         <div class="row form-div">
             <div class="input-field">
-                <h5>How was your run? How did you feel physically?</h5>
+                <h5>How was your run? How did you feel physically? What did you think about while running?How did you feel emotionally while running?</h5>
                 <textarea id="body" name="body" class="form-control input-box"></textarea>
             </div>
         </div>
         <div class="row form-div">
             <div class="input-field">
-                <h5>What did you think about while running?</h5>
+                <h5>Additional Notes (Clothing, Weather, etc.)</h5>
                 <textarea id="thoughts" name="thoughts" class="form-control input-box"></textarea>
             </div>
         </div>
-        <div class="row form-div">
-        <div class="input-field">
-            <h5>How did you feel emotionally while running?</h5>
-            <textarea id="emotions" name="emotions" class="form-control input-box"></textarea>
-        </div>
-        <!-- Holding off on images for now. Will allow them to be added eventually. Leaving code for later. -->
-        <!--
-        <div class="mb-3">
-            <label for="imgUpload" class="form-label">Image</label>
-            <input type="file" class="form-control" id="imageUpload" name="file">
-          </div>
-    -->
     <section class="form-row btn-row">
           <button type="submit" class="col-3 btn btn-primary btn-lg index-btn" value="Upload">Submit</button>
     </form>
@@ -90,5 +116,4 @@
 </div>
 <div class="space"></div>
 </main>
-</section>
 <%- include('partials/footer') -%>
