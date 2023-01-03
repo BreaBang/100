@@ -1,46 +1,40 @@
 <%- include('partials/header-login-index') -%>
-<main class="intro-container">
-<section class="container intro-container-text">
-  <img src="/imgs/logo.jpeg" class="logo">
-    <div class="row">
-        <section class="col-6 mt-5">
+<!-- Hero -->
+<div class="hero min-h-screen" style="background-image: url(/imgs/login-01.jpg);">
+  <div class="hero-overlay bg-opacity-50"></div>
+  <div class="hero-content text-left text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">Write to Run Well</h1>
+      <p class="py-6">Write to Run is an online running journal, goal tracker and social community. You can post private or public journal entries about your run and keep track of your running goals and upcoming races.</p>
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card-body">
           <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-          <div class="alert alert-danger"><%= el.msg %></div>
-          <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-          messages.info.forEach( el => { %>
-          <div class="alert alert-info"><%= el.msg %></div>
-          <% }) %> <% } %>
-          <form action="/login" method="POST">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Email address</label
-              >
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                name="email"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                name="password"
-              />
-            </div>
-            <button type="submit" class="col-3 btn btn-primary btn-lg index-btn">Login</button>
+            <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+            messages.info.forEach( el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %> <% } %>
+            <form action="/login" method="POST">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input type="email" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input type="password" class="input input-bordered" id="exampleInputPassword1" name="password"/>
+          </div>
+          <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary text-primary">Login</button>
+          </div>
           </form>
-          <a href="/signup" class="col-3 btn btn-primary btn-lg index-btn"> Signup</a>
-        </section>
+          <button class="btn btn-primary"><a href="/signup"> Sign Up</a></button>
+        </div>
       </div>
     </div>
-</section>
-<section class="sideBar">
-</section>
-</main>
-
+  </div>
+</div>
 <%- include('partials/footer') -%>

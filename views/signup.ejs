@@ -1,9 +1,9 @@
-<%- include('partials/header-login-index') -%>
-<main class="intro-container">
-  <section class="container login-container-form">
-  <img src="/imgs/logo.jpeg" class="logo">
-    <div class="row">
-      <section class="col-6 mt-5">
+<%- include('partials/header') -%>
+<div class="hero min-h-screen bg-neutral text-base-100">
+    <div class="hero-content flex-col ">
+        <h1 class="text-5xl font-bold">Create an Account</h1> 
+      <div class="text-center lg:text-left">
+      <div class="form-control">
         <% if (locals.messages.errors) { %>
             <% messages.errors.forEach( el => { %>
                 <div class="alert alert-danger"><%= el.msg %></div>
@@ -11,46 +11,34 @@
         <% } %>
         <% if (locals.messages.info) { %>
             <% messages.info.forEach( el => { %>
-                <div class="alert alert-info"><%= el.msg %></div>
+                <div><%= el.msg %></div>
             <% }) %>    
         <% } %>
         <form action="/signup" method="POST">
-            <div class="mb-3">
-                <label for="userName" class="form-label">User Name</label>
-                <input type="text" class="form-control" id="userName" name="userName">
+            <div class="form-control my-2 text-left">
+                <label for="userName" class="form-label">Legal First and Last Name</label>
+                <input type="text" placeholder="Your Name" class="input input-bordered w-full max-w-xs text-neutral" id="userName" name="userName" />
               </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-              <div id="emailHelp" class="form-text">We'll never intentionally share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
+            <div class="form-control my-2 text-left">
+                <label for="email" class="form-label">Email</label>
+                      <input type="text" placeholder="Your Email" class="input input-bordered w-full max-w-xs text-neutral" id="email" name="email"/>
+                    </label>
+                  </div>
+            <div class="form-control my-2 text-left">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
+              <input type="password" class="input input-bordered w-full max-w-xs text-neutral" id="password" name="password">
             </div>
-            <div class="mb-3">
+            <div class="form-control my-2 text-left">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                <input type="password" class="input input-bordered w-full max-w-xs text-neutral" id="confirmPassword" name="confirmPassword">
               </div>
-            <section class="terms">
-            <div>
-              By creating an account, you are agreeing to the Write to Run Well terms & conditions and Write to Run Well privacy policy, 
-              including receipt of BreOutside LLC exclusive email offers and promotions. To manage your marketing choices please access the Choice section of the Write to Run Well Privacy Policy.
+            <div class="my-2 text-left">
+              By creating an account, you are agreeing to the Write to Run Well terms & conditions and privacy policy.
             </div>
-            <div>
-              <a href="/terms/terms.ejs">Terms & Conditions</a>
-              <br>
-              <a href="/terms/privacy.ejs">Privacy Policy</a>
-            </div>
-            </section>
-            <button type="submit" class=" btn btn-primary btn-lg index-btn">Create an Account</button>
+            <button type="submit" class="btn btn-base text-base-100 border-base-100 my-5">Create an Account</button>
           </form>
-    </section>
+        </div>
     </div>
-    </section>
-      <section class="sideBar-signup">
-      </section>
-    </main>
-    <div class="space"></div>
-
+</div>
+</div>
 <%- include('partials/footer') -%>
