@@ -6,12 +6,12 @@ Write to Run Well is a full stack running web application where runners can log 
 I came up for the idea of this app while running. I recently signed up for a half-marathon and have been having trouble keeping track of when I ran during the week. I also thought it would be useful for running coaches if their customers were using something like this where they could see what their solo runs were like and how they went. 
 
 ## Tech Used
-This app was created using Javascript, EJS, MongoDB, Mongoose, Bootstrap, Node.js, Express.js, Passport, BCRPYT and Render. 
+This app was created using Javascript, EJS, MongoDB, Mongoose, TailwindCSS, Node.js, Express.js, Passport, BCRPYT and Render. 
 
 ## Lessons Learned
 Building this application gave me a chance to dive deep into MVC architecture. I struggled a lot at first with setting up correct routes to my controllers and figuring out which routes needed to go to the main file and which needed to go into the specific function's route folder.
 
-While building this application I learned to use Bootstrap for the first time. Bootstrap made it easy to have consistency across the pages. 
+While building this application I initially used Bootstrap but after using TailwindCSS for a different project, I decided to come back and redo the fontend in Tailwind. After trying both frameworks, I found that I prefer TailwindCSS due to it being more mobile friendly off the get go. It is mobile first and it's easier to use the classes to change the components based on the viewport size. 
 
 Other things I learned:
 
