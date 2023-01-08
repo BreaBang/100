@@ -28,12 +28,10 @@ const EntrySchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'public',
         enum: ['public', 'private']
     },
     runType: {
         type: String,
-        default: 'Recovery',
         enum: ['Recovery', 'Base Run','Long Run', 'Easy Run', 'Tempo Run', 'Fartlek', 'Speed Workout', 'Hill Repeats', 'Walk/Run', 'Intervals', 'Race' ]
     },
     user: {

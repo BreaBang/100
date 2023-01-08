@@ -2,93 +2,88 @@
  <!-- Image Banner -->
  <img src="/imgs/add-banner.jpg" class="w-screen h-auto"> 
         
-<main class="bg-primary h-screen">
+<main class="bg-primary">
 <!-- Add a Race -->
 <div class="border-2 border-primary my-4 mx-4">
 <form action="/race/createRace" method="POST" class="col s12">
-    <div class="flex flex-row py-4 px-4">
-        <div class="mx-1"><h2 class="text-white">Add a Race:</h2></div>
-        <div class="mx-1"><input type="text" id="race" name="race" placeholder="Race Name Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
-        <div class="mx-1"><input type="date" id="raceDate" name="raceDate" class="input input-bordered input-primary w-full max-w-xs" /></div>
-        <div class="mx-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
-  </form>
-</div>
+    <div class="flex flex-col py-4 px-4 lg:flex-row">
+        <div class="mx-1 my-1"><h2 class="text-white">Add a Race:</h2></div>
+        <div class="mx-1 my-1"><input type="text" id="race" name="race" placeholder="Race Name Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1 my-1"><input type="date" id="raceDate" name="raceDate" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1 my-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
+    </div>
+    </form>
 </div>
 
 <!-- Add a Goal -->
 <div class="border-2 border-primary my-4 mx-4">
 <form action="/goal/createGoal" method="POST">
-    <div class="flex flex-row py-4 px-4">
-        <div class="mx-1"><h2 class="text-white">Add a Goal:</label></h2></div>
-        <div class="mx-1"><input type="text" id="goal" name="goal" placeholder="Your Goal Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
-        <div class="mx-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
-  </form>
-  </div>
+    <div class="flex flex-col py-4 px-4 lg:flex-row">
+        <div class="mx-1 my-1"><h2 class="text-white">Add a Goal:</label></h2></div>
+        <div class="mx-1 my-1"><input type="text" id="goal" name="goal" placeholder="Your Goal Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1 my-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
+    </div>
+    </form>
   </div>
 <!-- Add a Journal Entry-->
 <div class="border-2 border-primary my-4 mx-4">
 <form action="/entries/add" enctype="multipart/form-data" method="POST" class="col s12">
     <div class="flex flex-col py-4 px-4">
-        <div class="mx-1"><h2 class="text-white">Add a Journal Entry:</label></h2></div>
-        <div class="mx-1"><input type="text" id="title" name="title" placeholder="Entry Title" class="input input-bordered input-primary w-full max-w-xs"></div>
-    <div class="row form-div">
-            <div class="input-field">
-                <label for="status"><h5>Privacy</h5></label>
-                 <select id="status" name="status" class="form-control">
-                   <option value="public" selected>Public</option>
-                    <option value="private">Private</option>
-                </select>
-            </div>
-            <div class="row">
-                <div class="input-field form-div">
-                    <label for="status"><h5>Run Type</h5></label>
-                     <select id="runType" name="runType" class="form-control">
-                        <option value="Recovery" selected>Recovery</option>
-                        <option value="Base Run">Base Run</option>
-                        <option value="Long Run" selected>Long Run</option>
-                        <option value="Tempo Runn">Tempo Run</option>
-                        <option value="Fartlek" selected>Fartlek</option>
-                        <option value="Speed Workout">Speed Workout</option>
-                        <option value="Hill Repeats">Hill Repeats</option>
-                        <option value="Walk/Run" selected>'Walk/Run'</option>
-                        <option value="Intervals">Intervals</option>
-                        <option value="Race">Race</option>
-                    </select>
-                </div>
+        <div class="mx-1 my-1"><h2 class="text-white">Add a Journal Entry:</label></h2></div>
+        <!-- Title -->
+        <div class="mx-1 my-1">
+            <input type="text" id="title" name="title" placeholder="Entry Title" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+       <!-- Privacy Level -->
+        <div class="mx-1 my-1">
+            <select class="select select-bordered w-full max-w-xs" id="status" name="status">
+            <option value="public" selected>Public</option>
+            <option value="private">Private</option>
+            <option disabled selected>Entry Privacy Level</option>
+            </select>
+        </div>
+        <!-- Run Type -->
+        <div class="mx-1 my-1">
+            <select class="select select-bordered w-full max-w-xs" id="runType" name="runType">
+                <option value="Recovery" selected>Recovery</option>
+                <option value="Base Run">Base Run</option>
+                <option value="Long Run" selected>Long Run</option>
+                <option value="Tempo Runn">Tempo Run</option>
+                <option value="Fartlek" selected>Fartlek</option>
+                <option value="Speed Workout">Speed Workout</option>
+                <option value="Hill Repeats">Hill Repeats</option>
+                <option value="Walk/Run" selected>'Walk/Run'</option>
+                <option value="Intervals">Intervals</option>
+                <option value="Race">Race</option>
+            <option disabled selected>Run Type</option>
+            </select>
+        </div>
+        <!-- Duration -->
+        <div class="mx-1 my-1">
+            <input type="text" id="duration" name="duration" placeholder="How long was your run?" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+         <!-- Distance -->
+         <div class="mx-1 my-1">
+            <input type="text" id="distance" name="distance" placeholder="How far was your run?" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+          <!-- Body -->
+          <div class="mx-1 my-1">
+            <textarea type="text" id="body" name="body" placeholder="How was your run? How did you feel physically? What did you think about while running?How did you feel emotionally while running?" class="textarea textarea-bordered w-full max-w-xs"></textarea>
+        </div>
+         <!-- Other Notes -->
+         <div class="mx-1 my-1">
+            <textarea type="text" id="thoughts" name="thoughts" placeholder="Additional Notes (Clothing, Weather, etc.)" class="textarea textarea-bordered w-full max-w-xs"></textarea>
+        </div>
+        <!-- Submit or Cancel -->
+        <div class="flex flex-col my-2 lg:flex-row">
         <div>
-        <div>
-            <div>
-                <label for="duration"><h5>Duration</h5></label>
-                 <input type="text" id="duration" name="duration" class="form-control duration-width">
-                        
-            </div>
+            <button type="submit" class="btn btn-base border-base-100 text-base mr-2 my-2" value="Upload">Submit</button>
         </div>
-        <div class="row">
-            <div class="input-field form-div">
-                <label for="distance"><h5>Distance</h5></label>
-                 <input type="text" id="distance" name="distance" class="form-control distance-width">
-                        
-            </div>
+        </form>
+        <div><a href="/dashboard" class="btn btn-base border-base-100 text-base mr-2 my-2">Cancel</a></div>
         </div>
-    </div>
-        <div class="row form-div">
-            <div class="input-field">
-                <h5>How was your run? How did you feel physically? What did you think about while running?How did you feel emotionally while running?</h5>
-                <textarea id="body" name="body" class="form-control input-box"></textarea>
-            </div>
-        </div>
-        <div class="row form-div">
-            <div class="input-field">
-                <h5>Additional Notes (Clothing, Weather, etc.)</h5>
-                <textarea id="thoughts" name="thoughts" class="form-control input-box"></textarea>
-            </div>
-        </div>
-    <div class="flex flex-col my-2 lg:flex-row">
-          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-    </form>
-    <div>
-        <a href="/dashboard" class="btn btn-primary">Cancel</a>
-    </div>
+</div>
+</div>
 </div>
 </main>
 <%- include('partials/footer') -%>
