@@ -2,63 +2,74 @@
 <!-- Image Banner -->
 <img src="/imgs/dashboard-01.jpg" class="w-screen"> 
 <!-- Screen Height -->
-<div class="min-h-screen">
+<div class="min-h-screen bg-base-100">
+<div class="text-black mx-2 lg:flex-row mx-20">
 <!-- Entry Section -->
-<div class="my-5 mx-5">
-  <div>
-    <h2 class="text-center"><%= entry.title %></h2>
+  <div class="my-4 mx-2 py-4">
+    <h2 class="text-center text-xl font-bold"><%= entry.title %></h2>
   </div>
-    <h4>Runner: <a href="/profile/<%=entry.user._id%>"> <%= entry.userName %></a></h4>
-    <h4>Type of Run: <%= entry.runType %></h4>
-    <h4>Distance: <%= entry.distance %></h4>
-    <h4>Duration: <%= entry.duration %></h4>
-    <h4>How was your run? How did you feel physically?</h4>
-    <p><%= entry.body %></p>
-    <h4>What did you think about while running?</h4>
-    <p><%= entry.thoughts %></4>
-    <h4>How did you feel emotionally while running?</h4>
-    <p><%= entry.emotions %></p>
+    <div class="flex flex-row mr-2 my-2">
+      <h4 class="font-bold mx-2">Runner:</h4> <a href="/profile/<%=entry.user._id%>"> <%= entry.userName %></a>
+    </div>
+    <div class="flex flex-row mr-2 my-2">
+      <h4 class="font-bold mx-2">Type of Run:</h4> <%= entry.runType %>
+    </div>
+    <div class="flex flex-row mr-2 my-2">
+      <h4 class="font-bold mx-2">Distance:</h4> <%= entry.distance %>
+    </div>
+    <div class="flex flex-row mr-2 my-2">
+      <h4 class="font-bold mx-2">Duration:</h4> <%= entry.duration %>
+    </div>
+    <div class="flex flex-col mr-2 my-2">
+      <h4 class="font-bold mx-2">How was your run? How did you feel physically? Emotionally? What did you think about?</h4>
+      <p class="mx-2"><%= entry.body %></p>
+    </div>
+    <div class="flex flex-col mr-2 my-2">
+      <h4 class="font-bold mx-2">Additional notes about this run (Clothing, Weather, etc.):</h4>
+    <p class="mx-2"><%= entry.thoughts %></p>
+    </div>
   <!-- Delete Post -->
+  <div class="flex flex-row mx-2">
     <%if(entry.user == user.id){ %>
     <form
         action="/entries/deleteEntry/<%= entry._id%>?_method=DELETE"
         method="POST"
-        class="col-3"
       >
       <button class="btn btn-danger" type="submit">Delete Entry</button>
     </form>
         <% } %>
   </div>
+  </div>
 <!-- Comment Form Section -->
-  <section class="encouragement-section">
-      <h2>Encouragement</h2>
+<div class="text-base-100 mx-4 lg:mx-20">
+  <h4 class="font-bold mx-2">Encouragement</h4>
+  <div class="my-2">
       <form action="/comment/createComment/<%= entry._id%>" method="POST">
-            <label for="comment" class="form-label">Comment</label>
-            <input type="text" class="form-control" id="comment" name="comment">
+            <input type="text" id="comment" name="comment" placeholder="Comment" class="input input-bordered input-primary w-full max-w-xs">
           </div>
-          <button type="submit" class="btn btn-primary comment">Submit</button>
+          <button type="submit" class="btn btn-primary border-primary text-primary my-2">Submit</button>
         </form>
+    </div>
 <!-- Display Comments-->
-  <section>
-    <ul class="list-group-flush">
+<div class="text-black mx-4 lg:mx-20">
+    <ul>
       <% for(var i=0; i<comments.length; i++) {%>
-      <li class="list-group-item display-encouragement">
+      <li>
 <!--Add user attribution-->
-      <span><%= comments[i].userName%>: <%= comments[i].comment%> </span>
+      <span class="text-base-100"><%= comments[i].userName%>: <%= comments[i].comment%> </span>
 <!--If comment was created by current user, then show delete button-->
       <%if(comments[i].user == user.id){ %>
       <form
          action="/comment/deleteComment/<%=entry._id%>/<%= comments[i]._id %>?_method=DELETE"
          method="POST"
         >
-        <button type="submit" class="btn btn-danger fa fa-trash btn-encouragement-delete"></button>
+          <button type="submit" class="btn btn-base border-black text-base fa fa-trash"></button>
       </form>
       <%}%>        
     </li>
         <% } %>
     </ul>
-  </section>
-</section>
+</div>
 </div>
 </div>
 <%- include('partials/footer') -%>
