@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ['/views/*.{ejs}',],
   theme: {
     extend: {},
   },
@@ -8,7 +8,30 @@ module.exports = {
    // daisyUI config (optional)
    daisyui: {
     styled: true,
-    themes: ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"],
+    themes: [
+      {
+        mytheme: {
+          
+          "primary": "#38b2b5",
+                   
+          "secondary": "#f4a358",
+                   
+          "accent": "#2326a3",
+                   
+          "neutral": "#191820",
+                   
+          "base-100": "#F4F4F6",
+                   
+          "info": "#4FA1EE",
+                   
+          "success": "#15654A",
+                   
+          "warning": "#F9DC67",
+                   
+          "error": "#F41515",
+                   },
+      },
+    ],
     base: true,
     utils: true,
     logs: true,

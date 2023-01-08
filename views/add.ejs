@@ -2,35 +2,36 @@
  <!-- Image Banner -->
  <img src="/imgs/add-banner.jpg" class="w-screen h-auto"> 
         
-<main class="mx-8 my-8">
+<main class="bg-primary h-screen">
 <!-- Add a Race -->
-<div class="border-4 border-primary my-4">
-<div class="flex flex-row">
+<div class="border-2 border-primary my-4 mx-4">
 <form action="/race/createRace" method="POST" class="col s12">
-    <h2><label for="race">Add a Race:</label></h2>
-        <span>Race:</span> <input type="text" id="race" name="race">
-        <span>Race Date:</span> <input id="raceDate" name="raceDate" type="date" required> 
-        <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
+    <div class="flex flex-row py-4 px-4">
+        <div class="mx-1"><h2 class="text-white">Add a Race:</h2></div>
+        <div class="mx-1"><input type="text" id="race" name="race" placeholder="Race Name Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1"><input type="date" id="raceDate" name="raceDate" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
   </form>
 </div>
 </div>
 
 <!-- Add a Goal -->
-<div class="border-4 border-primary my-4">
-<form action="/goal/createGoal" method="POST" class="col s12">
-    <label for="goal" class="entry-label">Add a Goal:</label>
-    <input type="text" id="goal" name="goal" class="form-control">
-    <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
+<div class="border-2 border-primary my-4 mx-4">
+<form action="/goal/createGoal" method="POST">
+    <div class="flex flex-row py-4 px-4">
+        <div class="mx-1"><h2 class="text-white">Add a Goal:</label></h2></div>
+        <div class="mx-1"><input type="text" id="goal" name="goal" placeholder="Your Goal Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
+        <div class="mx-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
   </form>
-</div>
+  </div>
+  </div>
 <!-- Add a Journal Entry-->
-<div class="border-4 border-primary my-4">
-<h3>Add A Journal Entry</h3>
-    <form action="/entries/add" enctype="multipart/form-data" method="POST" class="col s12">
-        <label for="title"><h5>Title</h5></label>
-        <input type="text" id="title" name="title" class="form-control">
-
-        <div class="row form-div">
+<div class="border-2 border-primary my-4 mx-4">
+<form action="/entries/add" enctype="multipart/form-data" method="POST" class="col s12">
+    <div class="flex flex-col py-4 px-4">
+        <div class="mx-1"><h2 class="text-white">Add a Journal Entry:</label></h2></div>
+        <div class="mx-1"><input type="text" id="title" name="title" placeholder="Entry Title" class="input input-bordered input-primary w-full max-w-xs"></div>
+    <div class="row form-div">
             <div class="input-field">
                 <label for="status"><h5>Privacy</h5></label>
                  <select id="status" name="status" class="form-control">
@@ -54,9 +55,9 @@
                         <option value="Race">Race</option>
                     </select>
                 </div>
-        <div class="column run-stats">
-        <div class="row">
-            <div class="input-field form-div">
+        <div>
+        <div>
+            <div>
                 <label for="duration"><h5>Duration</h5></label>
                  <input type="text" id="duration" name="duration" class="form-control duration-width">
                         
@@ -82,13 +83,12 @@
                 <textarea id="thoughts" name="thoughts" class="form-control input-box"></textarea>
             </div>
         </div>
-    <section class="form-row btn-row">
-          <button type="submit" class="col-3 btn btn-primary btn-lg index-btn" value="Upload">Submit</button>
+    <div class="flex flex-col my-2 lg:flex-row">
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
     </form>
     <div>
-        <a href="/dashboard" class="col-3 btn btn-primary btn-lg index-btn">Cancel</a>
+        <a href="/dashboard" class="btn btn-primary">Cancel</a>
     </div>
 </div>
-<div class="space"></div>
 </main>
 <%- include('partials/footer') -%>
