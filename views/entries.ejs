@@ -1,17 +1,22 @@
 <%- include('partials/header') -%>
-<section class="entries-layout">
-  <!-- Entry Section -->
-  <main class="container entries-main">  
-    <h2><%= entry.title %></h2>
-    <h5>Runner: <a href="/profile/<%=entry.user._id%>"> <%= entry.userName %></a></h5>
-    <h5>Type of Run: <%= entry.runType %></h5>
-    <h5>Distance: <%= entry.distance %></h5>
-    <h5>Duration: <%= entry.duration %></h5>
-    <h5>How was your run? How did you feel physically?</h5>
+<!-- Image Banner -->
+<img src="/imgs/dashboard-01.jpg" class="w-screen"> 
+<!-- Screen Height -->
+<div class="min-h-screen">
+<!-- Entry Section -->
+<div class="my-5 mx-5">
+  <div>
+    <h2 class="text-center"><%= entry.title %></h2>
+  </div>
+    <h4>Runner: <a href="/profile/<%=entry.user._id%>"> <%= entry.userName %></a></h4>
+    <h4>Type of Run: <%= entry.runType %></h4>
+    <h4>Distance: <%= entry.distance %></h4>
+    <h4>Duration: <%= entry.duration %></h4>
+    <h4>How was your run? How did you feel physically?</h4>
     <p><%= entry.body %></p>
-    <h5>What did you think about while running?</h5>
-    <p><%= entry.thoughts %></p>
-    <h5>How did you feel emotionally while running?</h5>
+    <h4>What did you think about while running?</h4>
+    <p><%= entry.thoughts %></4>
+    <h4>How did you feel emotionally while running?</h4>
     <p><%= entry.emotions %></p>
   <!-- Delete Post -->
     <%if(entry.user == user.id){ %>
@@ -23,8 +28,7 @@
       <button class="btn btn-danger" type="submit">Delete Entry</button>
     </form>
         <% } %>
-<div class="space"></div>
-</main>
+  </div>
 <!-- Comment Form Section -->
   <section class="encouragement-section">
       <h2>Encouragement</h2>
@@ -55,4 +59,6 @@
     </ul>
   </section>
 </section>
+</div>
+</div>
 <%- include('partials/footer') -%>

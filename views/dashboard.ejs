@@ -2,9 +2,11 @@
 
  <!-- Image Banner -->
 <img src="/imgs/dashboard-01.jpg" class="w-screen"> 
-<div class="flex flex-col justify-center lg:flex-row">
+<!-- Screen Height -->
+<div class="min-h-screen">
 <!-- User Profile Grid -->
-<div class="card w-10/12 bg-primary-content text-neutral shadow-xl mx-5 my-5 lg:w-96" data-name='<%=user.user%>' data-id='<%=user._id%>'>
+<div class="flex flex-col justify-center lg:flex-row">
+<div class="card w-72 bg-primary-content text-neutral shadow-xl mx-5 my-5 lg:w-72" data-name='<%=user.user%>' data-id='<%=user._id%>'>
   <figure class="px-10 pt-10">
     <img src="<%= user.img %>" alt="Profile Image" class="rounded-xl" />
   </figure>
@@ -31,7 +33,7 @@
     <div class="card-actions justify-start">
       <div class="col-8">
         <div class="overflow-x-auto">
-  <table class="table w-full">
+  <table class="table w-72">
     <!-- head -->
     <thead>
       <tr>
@@ -46,7 +48,7 @@
       <% entries.forEach(el => { %>
       <tr data-name='<%=el.user%>' data-id='<%=el._id%>'>
         <td><%=el.createdAt.toDateString() %></td>
-        <td><a href="/entries/<%= el._id%>"><%=el.title %></td>
+        <td><a href="/entries/<%= el._id%>"><%=el.title.substring(0, 20)+"..."%></td>
         <td><%=el.status %></td>
         <td><form
           action="/entries/deleteEntry/<%= el._id%>?_method=DELETE"
@@ -94,47 +96,37 @@
             <% }) %>
             </tbody>
           </table>
-   </div>
-   </div>
-   </div>
-   </div>
-   </div>
-     
-</div> 
-<div class="flex flex-col justify-center lg:flex-row">
- <!-- Goals -->
- <div class="card w-full bg-base-100 shadow-xl mx-5 my-5 lg:w-fit">
-  <div class="card-body">
-    <h2 class="card-title"><%= user.userName%>'s Goals</h2>
-    <div class="card-actions justify-start">
-      <div class="col-8">
-        <div class="overflow-x-auto">
-          <table class="table w-full">
-          <thead>
-            <tr>
-              <th>Date Added</th>
-              <th>Goal</th>
-              <th><span class="fa fa-trash"></span></th>
-            </tr>
-          </thead>
-            <tbody>
-              <% goals.forEach(el => { %>
-              <tr data-name='<%=el.user%>' data-id='<%=el._id%>'>
-                <td><%=el.createdAt.toDateString() %></td>
-                <td class ='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.goal %></td>
-                <td><form action="/goal/deleteGoal/<%= el._id%>?_method=DELETE" method="POST">
-                  <button class="text-primary fa fa-trash" type="submit"></button>
-              </form>
-            </td>
-              </tr>
-            <% }) %>
-            </tbody>
-          </table>
+    <!-- Goals -->
+    <div class="my-4">
+    <h2 class="card-title my-2"><%= user.userName%>'s Goals</h2>
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th>Date Added</th>
+          <th>Goal</th>
+          <th><span class="fa fa-trash"></span></th>
+        </tr>
+      </thead>
+        <tbody>
+          <% goals.forEach(el => { %>
+          <tr data-name='<%=el.user%>' data-id='<%=el._id%>'>
+            <td><%=el.createdAt.toDateString() %></td>
+            <td class ='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.goal %></td>
+            <td><form action="/goal/deleteGoal/<%= el._id%>?_method=DELETE" method="POST">
+              <button class="text-primary fa fa-trash" type="submit"></button>
+          </form>
+        </td>
+          </tr>
+        <% }) %>
+        </tbody>
+      </table>
+      </div>
    </div>
    </div>
    </div>
    </div>
    </div>
 </div>
+</div> 
 
 <%- include('partials/footer') -%>

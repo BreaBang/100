@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
     {
       type: String,
       require: true,
-      default: 'public/imgs/default.jpg',
+      default: '/imgs/default.jpg',
     },
   cloudinaryId:
     {

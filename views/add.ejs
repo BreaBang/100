@@ -1,59 +1,34 @@
 <%- include('partials/header') -%>
-
  <!-- Image Banner -->
- <div class="container image-banner">
-    <div class="row justify-content-md-center">
-      <div class="col">
-      </div>
-      <div class="col-md-auto"><img src="/imgs/add-banner.png"> 
-      </div>
-      <div class="col">
+ <img src="/imgs/add-banner.jpg" class="w-screen h-auto"> 
         
-      </div>
-    </div>
-<main class="container main-add">
+<main class="mx-8 my-8">
 <!-- Add a Race -->
-<div class="row form-div">
+<div class="border-4 border-primary my-4">
+<div class="flex flex-row">
 <form action="/race/createRace" method="POST" class="col s12">
-    <div class="form-row race-entry">
-      <label for="race" class="entry-label">Add a Race:</label>
-      <div class="col-3 race-form">
-        <span>Race:</span> <input type="text" id="race" name="race" class="form-control">
-      </div>
-      <div class="col-3 race-form">
-        <span>Race Date:</span> <input id="raceDate" name="raceDate" type="date" class="input input-bordered w-full max-w-xs form-control" required> 
-      </div>
-      <div class="col-3 race-form">
-      <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
-    </div>
-  </div>
+    <h2><label for="race">Add a Race:</label></h2>
+        <span>Race:</span> <input type="text" id="race" name="race">
+        <span>Race Date:</span> <input id="raceDate" name="raceDate" type="date" required> 
+        <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
   </form>
 </div>
-<div class="row form-div">
-    <!-- Add a Goal -->
+</div>
+
+<!-- Add a Goal -->
+<div class="border-4 border-primary my-4">
 <form action="/goal/createGoal" method="POST" class="col s12">
-    <div class="form-row race-entry">
-          <label for="goal" class="entry-label">Add a Goal:</label>
-          <div class="col-3 race-form">
-            <input type="text" id="goal" name="goal" class="form-control">
-        </div>
-        <div class="col-3 race-form">
+    <label for="goal" class="entry-label">Add a Goal:</label>
+    <input type="text" id="goal" name="goal" class="form-control">
     <button type="submit" class="btn btn-primary btn-lg btn-goal" value="Upload">Submit</button>
-    </div></div>
   </form>
 </div>
-<div class="row form-div">
+<!-- Add a Journal Entry-->
+<div class="border-4 border-primary my-4">
 <h3>Add A Journal Entry</h3>
-</div>
-<div class="row form-div">
     <form action="/entries/add" enctype="multipart/form-data" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field form-div">
-                <label for="title"><h5>Title</h5></label>
-                <input type="text" id="title" name="title" class="form-control">
-                
-            </div>
-        </div>
+        <label for="title"><h5>Title</h5></label>
+        <input type="text" id="title" name="title" class="form-control">
 
         <div class="row form-div">
             <div class="input-field">
