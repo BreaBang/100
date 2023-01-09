@@ -6,7 +6,7 @@
 <ul>
   <div class="lg:flex flex-row flex-wrap">
 <% for(var i=0; i<entries.length; i++) {%>
-<div class="card w-fit bg-primary-content text-neutral my-4 mx-4 lg:w-96">
+<div class="card bg-primary-content text-neutral my-4 mx-4 lg:w-96">
   <div class="card-body">
     <span><%=entries[i].createdAt.toDateString() %></span>
     <h2 class="card-title"><%= entries[i].title.substring(0, 20)+"..."%></h2>
