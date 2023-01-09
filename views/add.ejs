@@ -6,7 +6,7 @@
 <!-- Add a Race -->
 <div class="my-4 mx-4">
 <form action="/race/createRace" method="POST" class="col s12">
-    <div class="flex flex-col py-4 px-4 lg:flex-row ml-20">
+    <div class="flex flex-col py-4 lg:flex-row lg:ml-20">
         <div class="mx-1 my-1"><h2 class="text-white">Add a Race:</h2></div>
         <div class="mx-1 my-1"><input type="text" id="race" name="race" placeholder="Race Name Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
         <div class="mx-1 my-1"><input type="date" id="raceDate" name="raceDate" class="input input-bordered input-primary w-full max-w-xs" /></div>
@@ -18,7 +18,7 @@
 <!-- Add a Goal -->
 <div class="my-4 mx-4">
 <form action="/goal/createGoal" method="POST">
-    <div class="flex flex-col py-4 px-4 lg:flex-row ml-20">
+    <div class="flex flex-col py-4 lg:flex-row lg:ml-20">
         <div class="mx-1 my-1"><h2 class="text-white">Add a Goal:</label></h2></div>
         <div class="mx-1 my-1"><input type="text" id="goal" name="goal" placeholder="Your Goal Here" class="input input-bordered input-primary w-full max-w-xs" /></div>
         <div class="mx-1 my-1"><button type="submit" class="btn btn-base border-base-100 text-base" value="Upload">Submit</button></div>
@@ -26,9 +26,9 @@
     </form>
   </div>
 <!-- Add a Journal Entry-->
-<div class="my-4 mx-4">
+<div class="my-4 mx-4 lg:ml-20">
 <form action="/entries/add" enctype="multipart/form-data" method="POST" class="col s12">
-    <div class="flex flex-col py-4 px-4 lg:ml-20">
+    <div class="flex flex-col py-4lg:ml-20">
         <div class="mx-1 my-1"><h2 class="text-white">Add a Journal Entry:</label></h2></div>
         <!-- Title -->
         <div class="mx-1 my-1">
