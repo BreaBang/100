@@ -35,7 +35,7 @@
         action="/entries/deleteEntry/<%= entry._id%>?_method=DELETE"
         method="POST"
       >
-      <button class="btn btn-danger" type="submit">Delete Entry</button>
+      <button class="btn btn-primary border-primary text-primary" type="submit">Delete Entry</button>
     </form>
         <% } %>
   </div>
@@ -43,7 +43,7 @@
 <!-- Comment Form Section -->
 <div class="text-base-100 mx-4 lg:mx-20">
   <h4 class="font-bold mx-2">Encouragement</h4>
-  <div class="my-2">
+  <div class="my-2 text-black">
       <form action="/comment/createComment/<%= entry._id%>" method="POST">
             <input type="text" id="comment" name="comment" placeholder="Comment" class="input input-bordered input-primary w-full max-w-xs">
           </div>
@@ -53,19 +53,20 @@
 <!-- Display Comments-->
 <div class="text-black mx-4 lg:mx-20">
     <ul>
-      <% for(var i=0; i<comments.length; i++) {%>
-      <li>
+      <li class="text-black"><% for(var i=0; i<comments.length; i++) {%>
 <!--Add user attribution-->
-      <span class="text-base-100"><%= comments[i].userName%>: <%= comments[i].comment%> </span>
+        <div class="flex flex-row">
+      <span class="text-black"><%= comments[i].userName%>: <%= comments[i].comment%> </span>
 <!--If comment was created by current user, then show delete button-->
       <%if(comments[i].user == user.id){ %>
       <form
          action="/comment/deleteComment/<%=entry._id%>/<%= comments[i]._id %>?_method=DELETE"
          method="POST"
         >
-          <button type="submit" class="btn btn-base border-black text-base fa fa-trash"></button>
+          <button type="submit" class="btn btn-primary btn-sm border-primary text-primary fa fa-trash ml-2"></button>
       </form>
-      <%}%>        
+      <%}%>   
+    </div>     
     </li>
         <% } %>
     </ul>
