@@ -27,7 +27,7 @@
 </div>
 <!-- Running Journal -->
 <!--If entries add here -->
-<div class="card w-fit bg-base-100 shadow-xl mx-5 my-5">
+<div class="card w-11/12 overflow-x-auto bg-base-100 shadow-xl mx-5 my-5 lg:w-fit">
   <div class="card-body">
     <h2 class="card-title"><%= user.userName %>'s Running Journal Entries</h2>
     <div class="card-actions justify-start">
@@ -39,7 +39,7 @@
       <tr>
         <th>Date</th>
         <th>Title</th>
-        <th>Status</th>
+        <th class="">Status</th>
         <th><span class="fa fa-trash text-primary"></span></th>
       </tr>
     </thead>
@@ -67,7 +67,7 @@
 </div>
 </div>
 <!-- Races  -->
-<div class="card w-fit bg-base-100 shadow-xl mx-5 my-5">
+<div class="card w-11/12 overflow-x-auto bg-base-100 shadow-xl mx-5 my-5 lg:w-fit">
   <div class="card-body">
     <h2 class="card-title"><%= user.userName%>'s Races</h2>
     <div class="card-actions justify-start">
